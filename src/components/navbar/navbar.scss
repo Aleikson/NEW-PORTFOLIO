@@ -46,8 +46,8 @@
       content: '';
       right: 0;
       top: 0;
-      border-top: 3px solid orange;
-      border-right: 3px solid orange;
+      border-top: 3px solid #ffc93c;
+      border-right: 3px solid #ffc93c;
       transform: translate(-100%, 50%);
     }
 
@@ -55,8 +55,8 @@
       content: '';
       left: 0;
       bottom: 0;
-      border-bottom: 3px solid orange;
-      border-left: 3px solid orange;
+      border-bottom: 3px solid #ffc93c;
+      border-left: 3px solid #ffc93c;
       transform: translate(100%, -50%)
     }
 
@@ -67,16 +67,31 @@
     }
 
     .nav a:hover {
-      color: orange;
+      color: #ffc93c;
     }
 
     .nav .contact {
-      color: orange;
+      color: #ffc93c;
     }
 
     @include mobile {
       justify-content: flex-end;
       padding: 20px;
+
+      .nav {
+        display: none;
+      }
+
+      .sidebar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 20px;
+      }
+
+      span {
+        display: none;
+      }
     }
 
     span {
