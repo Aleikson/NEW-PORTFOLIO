@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import './about.scss';
 import { motion } from 'framer-motion';
 import { services } from '../constants';
+import { Tilt } from 'react-tilt';
 
 const variants = {
   initial: {
@@ -20,12 +21,31 @@ const variants = {
   },
 };
 
+const ServiceCard = ({ title, icon, description, skill }) => (
+  <Tilt className='tiltContainerr'>
+    <motion.div className='tiltContent'>
+      <div className='description'>
+        <img src={icon} alt='web-development' className='img' />
+        <h3 className='text'>{title}</h3>
+        <p>{description}</p>
+        <div className='spanColor'>
+          {skill.map((skill, index) => (
+            <span key={index} style={{ color: skill.color }}>
+              {skill.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  </Tilt>
+);
+
 const About = () => {
   const ref = useRef();
 
   return (
     <motion.div
-      className='services'
+      className='aboutContainer'
       variants={variants}
       initial='initial'
       // animate="animate"
@@ -49,32 +69,25 @@ const About = () => {
           </motion.div>
 
           <motion.p className='text-p'>
-            Sou um desenvolvedor de software experiente com habilidades em
-            TypeScript e JavaScript, além de expertise em frameworks como React,
-            Node.js e Three.js. Sou um aprendiz rápido e colaboro de perto com
-            os clientes para criar soluções eficientes, escaláveis e amigáveis
-            ao usuário, que resolvem problemas do mundo real. Vamos trabalhar
-            juntos para dar vida às suas ideias!
+            Sou um desenvolvedor fronend experiente com habilidades em
+            TypeScript e JavaScript, além de expertise em frameworks como React
+            e Node.js. Sou um aprendiz rápido e colaboro de perto com os
+            clientes para criar soluções eficientes, escaláveis e amigáveis ao
+            usuário, que resolvem problemas do mundo real.
           </motion.p>
         </div>
       </motion.div>
 
       <motion.div className='listContainer' variants={variants}>
-        {services.map((service, index) => (
-          <motion.div key={index} className='box' variants={variants}>
-            <div className='card'>
-              <div
-                className='card-image'
-                style={{ backgroundImage: `url(${service.bgCard})` }}
-              ></div>
-              <div className='card-text'>
-                <h2>{service.title}</h2>
-                <p>{service.description}</p>
-                <p>{service.skill}</p>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+        {/* <div className='listContent'> */}
+
+        <div className='cardss'>
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} index={index} {...service} />
+          ))}
+        </div>
+
+        {/* </div> */}
       </motion.div>
     </motion.div>
   );
