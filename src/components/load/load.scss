@@ -1,0 +1,49 @@
+@import "../../app.scss";
+
+.pre-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    //background: rgb(0, 254, 252);
+    background: radial-gradient(circle,
+            rgb(255, 255, 255) 0%,
+            rgba(16, 16, 16, 1) 95%);
+}
+
+.logo-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    aspect-ratio: 1/1;
+    border-radius: 9999px;
+    background: radial-gradient(circle farthest-corner at center center, #23252A 60%, #070709 100%);
+    color: white;
+    animation: growingCircle 3s ease-out;
+    overflow: hidden;
+
+    h1 {
+        color: $color-text-primary;
+    }
+}
+
+@keyframes growingCircle {
+    0% {
+        width: 0px;
+        height: 0px;
+    }
+
+    40% {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+    }
+
+    100% {
+        width: 300vw;
+        height: 300vw;
+        border-radius: 999px;
+    }
+}
