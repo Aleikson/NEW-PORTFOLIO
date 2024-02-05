@@ -1,4 +1,14 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
+import React from 'react';
+import {
+  FaHome,
+  FaInfoCircle,
+  FaTools,
+  FaCode,
+  FaEnvelope,
+} from 'react-icons/fa';
+import { contactMedia, navLinks } from '../../constants';
+import { Link } from 'react-router-dom';
 
 const variants = {
   open: {
@@ -13,6 +23,7 @@ const variants = {
     },
   },
 };
+
 const itemVariants = {
   open: {
     y: 0,
@@ -24,22 +35,38 @@ const itemVariants = {
   },
 };
 
-const Links = () => {
-  const items = ["Home", "Sobre", "Habilidades", "Projetos", "Contact"];
+const iconComponents = [FaHome, FaInfoCircle, FaTools, FaCode, FaEnvelope];
 
+const Links = () => {
   return (
-    <motion.div className="links" variants={variants}>
-      {items.map((item) => (
-        <motion.a
-          href={`#${item}`}
-          key={item}
-          variants={itemVariants}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {item}
-        </motion.a>
-      ))}
+    <motion.div className='links' variants={variants}>
+      <div className='linksWrapper'>
+        {navLinks.map((item, index) => (
+          <motion.div
+            key={item.id}
+            variants={itemVariants}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link
+              to={item.link}
+              style={{ color: item.title[0].color || 'inherit' }}
+            >
+              {React.createElement(iconComponents[index])}
+              {item.title[0].txt}
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+      {/* <div className='social'>
+              <ul>
+                {contactMedia.map((item, index) => (
+                  <li key={index}>
+                    <a href={item.link}>{item.icon}</a>
+                  </li>
+                ))}
+              </ul>
+            </div> */}
     </motion.div>
   );
 };
