@@ -54,13 +54,12 @@ const Portfolio = () => {
                     {index <
                       portfolioData[selectedItem].technologies.length - 1 &&
                       ', '}
-                  <p>{tech.description}</p>
+                    <p>{tech.description}</p>
                   </span>
                 ))}
               </p>
             </div>
-
-            <div className='image-gallery'>
+            {/* <div className='image-gallery'>
               {portfolioData[selectedItem].gallery.map((image, index) => (
                 <div
                   key={index}
@@ -74,7 +73,7 @@ const Portfolio = () => {
                   />
                 </div>
               ))}
-            </div>
+            </div> */}
             <button className='closeBtn' onClick={closeModal}>
               X
             </button>
