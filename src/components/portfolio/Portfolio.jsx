@@ -37,23 +37,29 @@ const Portfolio = () => {
         <div className='modal'>
           <div className='modal-content'>
             <div className='divImg'>
-              <img
-                src={portfolioData[selectedItem].imgSrc}
-                alt={`Portfolio Item ${selectedItem + 1}`}
-              />
+              <div className='imgTitle'>
+                <img
+                  src={portfolioData[selectedItem].imgSrc}
+                  alt={`Portfolio Item ${selectedItem + 1}`}
+                />
+              </div>
             </div>
-            <h2>{portfolioData[selectedItem].title}</h2>
-            <p>{portfolioData[selectedItem].description}</p>
-            <p>
-              Technologies:{' '}
-              {portfolioData[selectedItem].technologies.map((tech, index) => (
-                <span key={index} style={{ color: tech.color }}>
-                  {tech.name}
-                  {index <
-                    portfolioData[selectedItem].technologies.length - 1 && ', '}
-                </span>
-              ))}
-            </p>
+            <div className='infoProject'>
+              <h2>{portfolioData[selectedItem].title}</h2>
+              <p>{portfolioData[selectedItem].description}</p>
+              <p>
+                {portfolioData[selectedItem].technologies.map((tech, index) => (
+                  <span key={index} style={{ color: tech.color }}>
+                    {tech.name}
+                    {index <
+                      portfolioData[selectedItem].technologies.length - 1 &&
+                      ', '}
+                  <p>{tech.description}</p>
+                  </span>
+                ))}
+              </p>
+            </div>
+
             <div className='image-gallery'>
               {portfolioData[selectedItem].gallery.map((image, index) => (
                 <div
@@ -69,8 +75,10 @@ const Portfolio = () => {
                 </div>
               ))}
             </div>
+            <button className='closeBtn' onClick={closeModal}>
+              X
+            </button>
           </div>
-          <button onClick={closeModal}>X</button>
         </div>
       )}
     </div>

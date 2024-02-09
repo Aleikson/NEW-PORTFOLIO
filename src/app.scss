@@ -1,42 +1,21 @@
-@font-face {
-  font-family: kamerik-3d;
-  src: url(/fonts/kamerik205-heavy.woff2);
-  font-weight: 900;
-}
-
-/* html {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-  } */
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "DM Sans", sans-serif;
-}
-
-body {
-  font-family: kamerik-3d;
-  background: #070709;
-  /* color: #0c0c1d; */
-}
-
-section {
-  height: 100vh;
-}
-
 @mixin hover {
   &:hover {
-    @content; 
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: 568px) {
+    @content;
   }
 }
 
 @mixin mobile {
-  @media (max-width: 738px) {
+  @media (max-width: 768px) {
     @content;
   }
 }
+
 
 @mixin tablet {
   @media (max-width: 1024px) {
@@ -44,8 +23,51 @@ section {
   }
 }
 
-@mixin desktop {
-  @media (max-width: 1366px) {
+@mixin large {
+  @media (max-width: 1400px) {
     @content;
   }
+}
+
+@font-face {
+  font-family: 'Cera CY Bold';
+  src: url('./fonts/Cera CY Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cera CY Regular';
+  src: url('./fonts/Cera CY Regular.woff2') format('woff2');
+}
+
+$color-bg-primary: #070709;
+$color-bg-secondary: #23252A;
+$color-bg-neutral: #2c2d31;
+
+$color-text-primary: #ffc93c;
+$color-text-secondary: #DDDDDD;
+
+$text-large: 40px;
+$text-small: 16px;
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Cera CY Regular';
+}
+
+body {
+  background: radial-gradient(circle farthest-corner at center center, #23252A 60%, #070709 100%);
+}
+
+section {
+  height: 90vh;
+  scroll-snap-align: center;
+  padding: 30px;
+
+  @include sm {
+    padding: 100px 30px;
+  }
+
 }

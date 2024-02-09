@@ -1,80 +1,88 @@
 @import "../../app.scss";
 
 .navbar {
-  height: 35vh;
+  height: 10vh;
+  width: 100%;
+
+  @include sm {
+    display: none;
+  }
 
   .wrapper {
-    max-width: 1366px;
+    max-width: 90%;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    z-index: 9999;
 
-    .nav * {
-      box-sizing: border-box;
-      transition: all .35s ease;
-    }
-
-    .nav li {
-      display: inline-block;
-      list-style: outside none none;
-      margin: .5em .5em;
-      padding: 0;
+    .nav {
+      display: table-cell;
+      vertical-align: middle;
     }
 
     .nav a {
-      padding: .5em .8em;
-      color: white;
+      //padding: .5em .8em;
       position: relative;
       text-decoration: none;
       font-size: 20px;
+      color: #7F7F81;
+      letter-spacing: 5px;
+      z-index: 9;
+
     }
 
-    .nav a::before,
-    .nav a::after {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      padding: 0 24px;
+    }
+
+    span {
+      position: relative;
+      display: block;
+      //cursor: pointer;
+    }
+
+    span:before,
+    span:after {
       content: '';
-      height: 14px;
-      width: 14px;
       position: absolute;
-      transition: all .35s ease;
-      opacity: 0;
+      width: 0%;
+      height: 1px;
+      top: 50%;
+      margin-top: -0.5px;
+      background: #fff;
     }
 
-    .nav a::before {
-      content: '';
-      right: 0;
-      top: 0;
-      border-top: 3px solid #ffc93c;
-      border-right: 3px solid #ffc93c;
-      transform: translate(-100%, 50%);
+    span:before {
+      left: -2.5px;
     }
 
-    .nav a:after {
-      content: '';
-      left: 0;
-      bottom: 0;
-      border-bottom: 3px solid #ffc93c;
-      border-left: 3px solid #ffc93c;
-      transform: translate(100%, -50%)
+    span:after {
+      right: 2.5px;
+      background: #fff;
+      transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
-    .nav a:hover:before,
-    .nav a:hover:after {
-      transform: translate(0, 0);
-      opacity: 1;
+    span:hover:before {
+      background: #fff;
+      width: 100%;
+      transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
-    .nav a:hover {
-      color: #ffc93c;
+    span:hover:after {
+      background: transparent;
+      width: 100%;
+      transition: 0s;
     }
 
-    .nav .contact {
-      color: #ffc93c;
-    }
-
-    @include mobile {
+    @include sm {
       justify-content: flex-end;
       padding: 20px;
 
@@ -94,13 +102,19 @@
       }
     }
 
-    span {
-      font-weight: bold;
-      font-size: 20px;
+    .home {
+      text-decoration: none;
 
-      @include mobile {
-        display: none;
+      span {
+        font-weight: bold;
+        font-size: 35px;
+        color: #ffc93c;
+
+        @include sm {
+          display: none;
+        }
       }
     }
+
   }
 }

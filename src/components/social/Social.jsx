@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './social.scss';
+import { motion } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
@@ -23,15 +24,15 @@ function Social() {
     <div className='socialMediaContainer'>
       <div className='footerContent'>
         <div className='socialContent'>
-          <a href='#' className='btn-flip'>
+          <motion.a whileHover={{ scale: 1.1 }} href='#' className='btn-flip'>
             <FaLinkedinIn />
-          </a>
-          <a href='#' className='btn-flip'>
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.1 }} href='#' className='btn-flip'>
             <FiGithub />
-          </a>
-          <a href='#' className='btn-flip'>
+          </motion.a>
+          <motion.a whileHover={{ scale: 1.1 }} href='#' className='btn-flip'>
             <FaWhatsapp />
-          </a>
+          </motion.a>
         </div>
         <div className='scroll-indicator'>
           <span className='scroll-text'>{scrollText}</span>

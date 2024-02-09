@@ -11,7 +11,6 @@
 
   @include mobile {
     width: 100%;
-    padding: 10px;
     flex-direction: column;
   }
 
@@ -27,14 +26,27 @@
       gap: 20px;
       text-align: center;
       align-items: center;
-      margin-top: 70px;
     }
 
-    h2{
-      font-size: $text-small;
+    .item {
+
+      h2 {
+        font-size: $text-small;
+      }
+
+      a{
+        text-decoration: none;
+        color: $color-text-secondary;
+        font-size: $text-small;
+
+        &:hover{
+          color: $color-text-primary;
+        }
+      }
+
     }
 
-    p{
+    p {
       line-height: 30px;
       font-size: $text-small;
     }
@@ -53,31 +65,33 @@
   .formContainer {
     flex: 1;
     display: flex;
-    background: radial-gradient(circle farthest-corner at left center, #23252A 50%, #070709 150%);
-    box-shadow: -5px 5px 10px 0px rgba(0, 0, 0, 0.5);
-    padding: 55px;
+    position: relative;
     text-align: center;
-    height: 70%;
     flex-direction: column;
     justify-content: space-evenly;
+    z-index: 10;
+    height: 70%;
 
-    @include mobile {
-      padding: 50px;
-      width: 100%;
-    }
-
-    h2{
+    h2 {
       font-size: $text-large;
       color: #fff;
       font-family: "Cera CY Bold";
     }
 
-
     .phoneSvg {
-      stroke: orange;
+      stroke: $color-text-primary;
       position: absolute;
+      left: 15%;
       margin: auto;
-      z-index: 99;
+      z-index: -1;
+
+      @include mobile {
+        width: 300px;
+      }
+
+      svg {
+        width: 100%;
+      }
     }
 
     form {
@@ -85,19 +99,38 @@
       flex-direction: column;
       gap: 20px;
       align-items: center;
-      z-index: 999;
+      justify-content: space-between;
+      background: radial-gradient(circle farthest-corner at left center, #23252A 50%, #070709 150%);
+      box-shadow: -5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+      height: 100%;
+      padding: 55px;
 
       input,
       textarea {
         width: 100%;
         height: 50px;
-        margin-top: 5px;
-        padding-bottom: 25px;
         font-size: 16px;
         border: none;
-        border-bottom: 1px solid #55575B;
+        border-radius: 0;
         background: none;
+        box-shadow: inset 0 -2px 0 0 #55575B;
+        color: $color-text-secondary;
+        transition: box-shadow 0.3s;
 
+        &::placeholder {
+          color: $color-text-secondary;
+          transition: color 0.3s;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: inset 0 -2px 0 0 $color-text-primary;
+          color: $color-text-primary;
+        }
+
+        &:-webkit-autofill {
+          box-shadow: inset 0 -2px 0 0 #55575B;
+        }
 
         @include mobile {
           padding: 10px;
@@ -108,6 +141,7 @@
         background: #1C1E23;
         border-width: 0;
         box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.35);
+        box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
         color: #ffffff;
         cursor: pointer;
         font-size: 18px;
@@ -123,4 +157,3 @@
     }
   }
 }
-
