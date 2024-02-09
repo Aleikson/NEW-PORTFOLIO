@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react';
 import './contact.scss';
 import { motion, useInView } from 'framer-motion';
-/* import { TextField } from '@mui/material'; */
-/* import emailjs from "@emailjs/browser"; */
+import emailjs from '@emailjs/browser';
 
 const variants = {
   initial: {
@@ -32,60 +31,59 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    /* emailjs
+    emailjs
       .sendForm(
-        "service_94y20xo",
-        "template_v10u2oh",
+        'service_94y20xo',
+        'template_v10u2oh',
         formRef.current,
-        "pX_2hasGmGcuvjXIW"
+        'pX_2hasGmGcuvjXIW'
       )
       .then(
         (result) => {
-          setSuccess(true)
+          setSuccess(true);
         },
         (error) => {
           setError(true);
         }
-      ); */
+      );
   };
 
   return (
     <motion.div
-      ref={ref}
       className='contact'
       variants={variants}
       initial='initial'
-      whileInView='animate'
+      ref={ref}
+      animate={'animate'}
     >
       <motion.div className='textContainer' variants={variants}>
-        <motion.h1 variants={variants}>CONTACT</motion.h1>
+        <motion.h1 variants={variants}>CONTATOS</motion.h1>
         <p>
           Meu nome é Aleikson, sou um desenvolvedor Front-end e atuo como
           freelancer. Tenho uma paixão pela criação de experiências web
-          envolventes e funcionais. u codifico e crio elementos da web para
+          envolventes e funcionais. Eu codifico e crio elementos da web para
           pessoas incríveis ao redor do mundo. Gosto de trabalhar com pessoas
           novas. Novas pessoas, novas experiências.
         </p>
         <motion.div className='item' variants={variants}>
           <h2>E-mail</h2>
-          <span>aleiksonsilva@hotmail.com</span>
+          <a href='mailto:aleiksonsilva@hotmail.com'>
+            aleiksonsilva@hotmail.com
+          </a>
         </motion.div>
         <motion.div className='item' variants={variants}>
           <h2>LinkedIn</h2>
-          <span>linkedin.com/aleikson</span>
+          <a href='https://www.linkedin.com/in/aleikson/'>
+            linkedin.com/aleikson
+          </a>
         </motion.div>
         <motion.div className='item' variants={variants}>
-          <h2>Phone</h2>
-          <span>+55 99 98455-7469</span>
+          <h2>Telefone</h2>
+          <a href='tel:+5599984557469'>+55 99 98455-7469</a>
         </motion.div>
       </motion.div>
-      <motion.div
-        className='formContainer'
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 4, duration: 1 }}
-      >
-        <h2>CONTACT FORM</h2>
+
+      <div className='formContainer'>
         <motion.div
           className='phoneSvg'
           initial={{ opacity: 1 }}
@@ -115,16 +113,30 @@ const Contact = () => {
             />
           </svg>
         </motion.div>
-        <motion.form ref={formRef} onSubmit={sendEmail}>
-          <input type='text' required placeholder='Your name' name='name' />
-          <input type='email' required placeholder='Your e-mail' name='email' />
-          <input type='number' required placeholder='Your phone' name='phone' />
-          <textarea rows={8} placeholder='Your message' name='message' />
-          <button>SEND MESSAGE -</button>
-          {error && 'Error'}
-          {success && 'Success'}
+        <motion.form
+          ref={formRef}
+          onSubmit={sendEmail}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 4, duration: 1 }}
+        >
+          <h2>ENTRE EM CONTATO</h2>
+          <input type='text' required placeholder='Nome' name='name' />
+          <input type='email' required placeholder='E-mail' name='email' />
+          <textarea rows={8} placeholder='Mensagem' name='message' />
+          <button>Enviar</button>
+          {error && (
+            <p className='errorMessage'>
+              Ocorreu um erro. Por favor, tente novamente.
+            </p>
+          )}
+          {success && (
+            <p className='successMessage'>
+              Sua mensagem foi enviada com sucesso!
+            </p>
+          )}
         </motion.form>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };

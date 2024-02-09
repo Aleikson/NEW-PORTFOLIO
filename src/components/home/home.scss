@@ -1,127 +1,68 @@
 @import "../../app.scss";
 
-$index: calc(1vw + 1vh);
-$transition: 1.5s cubic-bezier(.05, .5, 0, 1);
+.hero {
+  height: 100%;
 
-@mixin mobile {
-    @media (max-width: 738px) {
-        @content;
-    }
-}
+  .wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
 
-@font-face {
-    font-family: merriweather-italic-3d;
-    src: url('/fonts/merriweather-regular-italic.woff2') format('woff2');
-}
+    .textContainer {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
-.layers {
-    perspective: 1000px;
-    overflow: hidden;
-    color: #fff;
+      h1 {
+        font-size: 10vw;
+        letter-spacing: 10px;
+        color: $color-text-secondary;
+        font-weight: 900;
+        font-family: "Cera CY Bold";
+        text-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-
-    .layers__container {
-        height: 100vh;
-        min-height: 500px;
-        transform-style: preserve-3d;
-        transform: rotateX(var(--move-y)) rotateY(var(--move-x));
-        will-change: transform;
-        transition: transform var($transition);
-    }
-
-    .layers__item {
-        position: absolute;
-        inset: -5vw;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .layer-1 {
-        transform: translateZ(-55px) scale(1.06);
-    }
-
-    /*     .layer-2 {
-        transform: translateZ(80px) scale(.88);
-    } */
-
-    .layer-3 {
-        transform: translateZ(180px) scale(.8);
-    }
-
-    .layer-4 {
-        transform: translateZ(190px) scale(.9);
-    }
-
-    /*     .layer-5 {
-        transform: translateZ(300px) scale(.9);
-    } */
-
-    /*    .layer-6 {
-        transform: translateZ(380px);
-        pointer-events: none;
-    } */
-
-    .slidingTextContainer {
-        position: absolute;
-        font-size: 30vh;
-        bottom: -115px;
-        white-space: nowrap;
-        color: #ffffff09;
-        width: 50%;
-        font-weight: bold;
-    }
-
-    .hero-content {
-        font-size: calc(#{$index} * 2.9);
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: calc(#{$index} * -.15);
-        line-height: 1.35em;
-
-        span {
-            display: block;
+        @include mobile {
+          font-size: 15vw;
         }
+      }
+
+      .subtitle {
+        width: 100%;
+        text-align: end;
 
         h2 {
-            font-size: 30px;
-            color: #ffc93c;
-            letter-spacing: 10px;
-        }
+          font-size: 1.5vw;
+          color: #7F7F81;
+          letter-spacing: 5px;
+          font-weight: 100;
 
-        h1 {
-            font-size: 88px;
-
-            @include mobile {
-                font-size: 36px;
-            }
+          @include mobile {
+            font-size: 2.5vw;
+          }
         }
+      }
+
+    }
+  }
+
+  .slidingTextContainer {
+    position: fixed;
+    font-size: 30vh;
+    bottom: -120px;
+    white-space: nowrap;
+    color: rgb(255 255 255 / 4%);
+    width: 50%;
+    font-family: "Cera CY Bold";
+
+    @include mobile {
+      font-size: 20vh;
+      bottom: -60px;
     }
 
-    .hero-content__p {
-        text-transform: none;
-        font-family: merriweather-italic-3d;
-        letter-spacing: normal;
-        font-size: calc(#{$index} * .73);
-        line-height: 3;
+    @include sm {
+      
     }
-
-    .buttons {
-        button {
-            padding: 20px;
-            border: 1px solid white;
-            border-radius: 10px;
-            background-color: transparent;
-            color: white;
-            margin-right: 20px;
-            cursor: pointer;
-            font-weight: 300;
-        }
-
-        img {
-            width: 50px;
-        }
-    }
+  }
 }

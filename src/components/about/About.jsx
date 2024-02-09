@@ -1,13 +1,13 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import './about.scss';
 import { motion } from 'framer-motion';
-import { services } from '../constants';
+import { modalInfo, services } from '../constants';
 import { Tilt } from 'react-tilt';
 
 const variants = {
   initial: {
     x: -500,
-    y: 100,
+    y: 0,
     opacity: 0,
   },
   animate: {
@@ -22,7 +22,7 @@ const variants = {
 };
 
 const ServiceCard = ({ title, icon, description, skill }) => (
-  <Tilt className='tiltContainerr'>
+  <Tilt className='tiltContainerr' transition={{ duration: 0.5 }}>
     <motion.div className='tiltContent'>
       <div className='description'>
         <img src={icon} alt='web-development' className='img' />
@@ -42,53 +42,115 @@ const ServiceCard = ({ title, icon, description, skill }) => (
 
 const About = () => {
   const ref = useRef();
+  const [selectedService, setSelectedService] = useState(null);
+
+  const openModal = (modalInfo) => {
+    console.log('Opening modal with:', modalInfo);
+    setSelectedService(modalInfo);
+  };
+
+  const closeModal = () => {
+    console.log('Closing modal');
+    setSelectedService(null);
+  };
 
   return (
     <motion.div
       className='aboutContainer'
       variants={variants}
       initial='initial'
-      // animate="animate"
-      // whileInView="animate"
       ref={ref}
       animate={'animate'}
     >
-      <motion.div className='textContainer' variants={variants}>
-        <p>
-          Eu foco em ajudar a sua marca a crescer
-          <br /> e avançar.
-        </p>
-        <hr />
-      </motion.div>
+        <motion.div className='titleContainer' variants={variants}>
+          <div className='ssd'>
+            <motion.div>
+              <p className='sectionSubText'>Introdução</p>
+              <h2 className='sectionHeadText'>Visão Geral.</h2>
+            </motion.div>
+            <motion.p className='text-p'>
+              Sou um desenvolvedor fronend experiente com habilidades em
+              TypeScript e JavaScript, além de expertise em frameworks como
+              React e Node.js. Sou um aprendiz rápido em criar soluções
+              eficientes, escaláveis e amigáveis ao usuário, que resolvem
+              problemas do mundo real.
+            </motion.p>
+            <motion.button
+              style={{ alignSelf: 'flex-end' }}
+              whileHover={{ scale: 1.1 }}
+              onClick={() => openModal(modalInfo)}
+            >
+              Mais informações
+            </motion.button>
+          </div>
+        </motion.div>
 
-      <motion.div className='titleContainer' variants={variants}>
-        <div className='ssd'>
-          <motion.div>
-            <p className='sectionSubText'>Introdução</p>
-            <h2 className='sectionHeadText'>Visão Geral.</h2>
-          </motion.div>
+        <motion.div className='listContainer' variants={variants}>
+          <div className='cardss'>
+            {services.map((service) => (
+              <ServiceCard key={service.title} {...service} />
+            ))}
+          </div>
+        </motion.div>
+      {selectedService && (
+        <div className='modal'>
+          <div className='modal-content'>
+            <div className='divImg'>
+              <div className='author'>
+                <img
+                  src={selectedService[0].img}
+                  alt={selectedService[0].title}
+                />
+                <h2>
+                  ALEIKSON <span>SILVA</span>
+                </h2>
+                <p>Desenvolvedor</p>
+              </div>
+              <div className='list'>
+                <ul>
+                  {selectedService[0].links &&
+                    selectedService[0].links.map((link, index) => (
+                      <li key={index}>
+                        <span>{link.icon}</span>
+                        <a
+                          href={link.url}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                        >
+                          {link.name}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
 
-          <motion.p className='text-p'>
-            Sou um desenvolvedor fronend experiente com habilidades em
-            TypeScript e JavaScript, além de expertise em frameworks como React
-            e Node.js. Sou um aprendiz rápido e colaboro de perto com os
-            clientes para criar soluções eficientes, escaláveis e amigáveis ao
-            usuário, que resolvem problemas do mundo real.
-          </motion.p>
+                <button className='btnCv'>Curriculo</button>
+              </div>
+            </div>
+            <div className='rightSide'>
+              <div className='infoContent'>
+                <h1>Sobre Mim</h1>
+                <p>{selectedService[0].description}</p>
+              </div>
+
+              <div className='infoContent'>
+                <h1>Habilidades</h1>
+                <ul>
+                  {selectedService[0].skill &&
+                    selectedService[0].skill.map((tech, index) => (
+                      <li key={index} style={{ color: tech.color }}>
+                        {tech.name}
+                        {index < selectedService[0].skill.length - 1 && ', '}
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            </div>
+            <button className='closeBtn' onClick={closeModal}>
+              X
+            </button>
+          </div>
         </div>
-      </motion.div>
-
-      <motion.div className='listContainer' variants={variants}>
-        {/* <div className='listContent'> */}
-
-        <div className='cardss'>
-          {services.map((service, index) => (
-            <ServiceCard key={service.title} index={index} {...service} />
-          ))}
-        </div>
-
-        {/* </div> */}
-      </motion.div>
+      )}
     </motion.div>
   );
 };
