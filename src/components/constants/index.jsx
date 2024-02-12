@@ -1,6 +1,6 @@
 import { FaHome, FaInfo, FaCode } from 'react-icons/fa';
 import { CiGlobe, CiLinkedin } from 'react-icons/ci';
-import { GrContact } from "react-icons/gr";
+import { GrContact } from 'react-icons/gr';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FaWhatsapp, FaGithub } from 'react-icons/fa';
 
@@ -221,19 +221,23 @@ export const modalInfo = [
       {
         icon: <CiLinkedin />,
         name: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/seu_perfil_linkedin/',
+        url: 'https://www.linkedin.com/in/aleikson-frontend/',
       },
       {
         icon: <AiOutlineMail />,
         name: 'E-mail',
-        url: 'mailto:seu_email@example.com',
+        url: 'mailto:aleiksonsilva@hotmail.com',
       },
       {
         icon: <FaGithub />,
         name: 'Github',
-        url: 'https://github.com/seu_username',
+        url: 'https://github.com/Aleikson',
       },
-      { icon: <FaWhatsapp />, name: '1234567890', url: 'tel:+1234567890' },
+      {
+        icon: <FaWhatsapp />,
+        name: '+55 99 98455-7469',
+        url: 'tel:+5599984557469',
+      },
     ],
     skill: [
       { name: 'React' },

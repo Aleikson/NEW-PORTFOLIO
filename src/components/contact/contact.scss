@@ -34,12 +34,12 @@
         font-size: $text-small;
       }
 
-      a{
+      a {
         text-decoration: none;
         color: $color-text-secondary;
         font-size: $text-small;
 
-        &:hover{
+        &:hover {
           color: $color-text-primary;
         }
       }
@@ -81,13 +81,9 @@
     .phoneSvg {
       stroke: $color-text-primary;
       position: absolute;
-      left: 15%;
       margin: auto;
       z-index: -1;
-
-      @include mobile {
-        width: 300px;
-      }
+      width: 100%;
 
       svg {
         width: 100%;
@@ -150,8 +146,8 @@
         padding: 0 50px;
         margin-top: 20px;
 
-        @include mobile {
-          padding: 10px;
+        &:hover{
+          color: $color-text-primary;
         }
       }
     }

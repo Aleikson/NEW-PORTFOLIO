@@ -29,6 +29,12 @@
   }
 }
 
+@mixin fix {
+  @media (max-width: 1610px) {
+    @content;
+  }
+}
+
 @font-face {
   font-family: 'Cera CY Bold';
   src: url('./fonts/Cera CY Bold.woff2') format('woff2');

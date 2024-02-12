@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 const Menu = ({ isVisible }) => {
   const [activeItem, setActiveItem] = useState(() => {
     const savedItem = parseInt(localStorage.getItem('activeItem'));
-    return isNaN(savedItem) ? 0 : savedItem;
+    return !isNaN(savedItem) && savedItem >= 0 && savedItem < navLinks.length
+      ? savedItem
+      : 0;
   });
   const menuBorderRef = useRef(null);
 
@@ -14,11 +16,6 @@ const Menu = ({ isVisible }) => {
     setActiveItem(index);
     localStorage.setItem('activeItem', index);
   };
-
-  useEffect(() => {
-    const body = document.body;
-    body.style.backgroundColor = activeItem;
-  }, [activeItem]);
 
   const updateMenuBorderPosition = (index) => {
     const activeMenuItem = document.querySelector(

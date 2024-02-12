@@ -24,13 +24,25 @@ function Social() {
     <div className='socialMediaContainer'>
       <div className='footerContent'>
         <div className='socialContent'>
-          <motion.a whileHover={{ scale: 1.1 }} href='#' className='btn-flip'>
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            href='https://www.linkedin.com/in/aleikson-frontend/'
+            className='btn-flip'
+          >
             <FaLinkedinIn />
           </motion.a>
-          <motion.a whileHover={{ scale: 1.1 }} href='#' className='btn-flip'>
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            href='https://github.com/Aleikson'
+            className='btn-flip'
+          >
             <FiGithub />
           </motion.a>
-          <motion.a whileHover={{ scale: 1.1 }} href='#' className='btn-flip'>
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            href='https://web.whatsapp.com/'
+            className='btn-flip'
+          >
             <FaWhatsapp />
           </motion.a>
         </div>

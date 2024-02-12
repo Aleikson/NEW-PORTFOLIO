@@ -45,12 +45,10 @@ const About = () => {
   const [selectedService, setSelectedService] = useState(null);
 
   const openModal = (modalInfo) => {
-    console.log('Opening modal with:', modalInfo);
     setSelectedService(modalInfo);
   };
 
   const closeModal = () => {
-    console.log('Closing modal');
     setSelectedService(null);
   };
 
@@ -62,36 +60,36 @@ const About = () => {
       ref={ref}
       animate={'animate'}
     >
-        <motion.div className='titleContainer' variants={variants}>
-          <div className='ssd'>
-            <motion.div>
-              <p className='sectionSubText'>Introdução</p>
-              <h2 className='sectionHeadText'>Visão Geral.</h2>
-            </motion.div>
-            <motion.p className='text-p'>
-              Sou um desenvolvedor fronend experiente com habilidades em
-              TypeScript e JavaScript, além de expertise em frameworks como
-              React e Node.js. Sou um aprendiz rápido em criar soluções
-              eficientes, escaláveis e amigáveis ao usuário, que resolvem
-              problemas do mundo real.
-            </motion.p>
-            <motion.button
-              style={{ alignSelf: 'flex-end' }}
-              whileHover={{ scale: 1.1 }}
-              onClick={() => openModal(modalInfo)}
-            >
-              Mais informações
-            </motion.button>
-          </div>
-        </motion.div>
+      <motion.div className='titleContainer' variants={variants}>
+        <div className='ssd'>
+          <motion.div>
+            <p className='sectionSubText'>Introdução</p>
+            <h2 className='sectionHeadText'>Visão Geral.</h2>
+          </motion.div>
+          <motion.p className='text-p'>
+            Sou um desenvolvedor fronend experiente com habilidades em
+            TypeScript e JavaScript, além de expertise em frameworks como React
+            e Node.js. Sou um aprendiz rápido em criar soluções eficientes,
+            escaláveis e amigáveis ao usuário, que resolvem problemas do mundo
+            real.
+          </motion.p>
+          <motion.button
+            style={{ alignSelf: 'flex-end' }}
+            whileHover={{ scale: 1.1 }}
+            onClick={() => openModal(modalInfo)}
+          >
+            Mais informações
+          </motion.button>
+        </div>
+      </motion.div>
 
-        <motion.div className='listContainer' variants={variants}>
-          <div className='cardss'>
-            {services.map((service) => (
-              <ServiceCard key={service.title} {...service} />
-            ))}
-          </div>
-        </motion.div>
+      <motion.div className='listContainer' variants={variants}>
+        <div className='cardss'>
+          {services.map((service) => (
+            <ServiceCard key={service.title} {...service} />
+          ))}
+        </div>
+      </motion.div>
       {selectedService && (
         <div className='modal'>
           <div className='modal-content'>
@@ -104,7 +102,7 @@ const About = () => {
                 <h2>
                   ALEIKSON <span>SILVA</span>
                 </h2>
-                <p>Desenvolvedor</p>
+                <p>Desenvolvedor Frontend</p>
               </div>
               <div className='list'>
                 <ul>
@@ -122,8 +120,9 @@ const About = () => {
                       </li>
                     ))}
                 </ul>
-
-                <button className='btnCv'>Curriculo</button>
+                <motion.button whileHover={{ scale: 1.1 }} className='btnCv'>
+                  Curriculo
+                </motion.button>
               </div>
             </div>
             <div className='rightSide'>
@@ -139,7 +138,7 @@ const About = () => {
                     selectedService[0].skill.map((tech, index) => (
                       <li key={index} style={{ color: tech.color }}>
                         {tech.name}
-                        {index < selectedService[0].skill.length - 1 && ', '}
+                        {index < selectedService[0].skill.length - 1}
                       </li>
                     ))}
                 </ul>

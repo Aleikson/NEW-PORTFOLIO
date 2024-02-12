@@ -124,7 +124,7 @@ const Contact = () => {
           <input type='text' required placeholder='Nome' name='name' />
           <input type='email' required placeholder='E-mail' name='email' />
           <textarea rows={8} placeholder='Mensagem' name='message' />
-          <button>Enviar</button>
+          <motion.button whileHover={{ scale: 1.1 }}>Enviar</motion.button>
           {error && (
             <p className='errorMessage'>
               Ocorreu um erro. Por favor, tente novamente.

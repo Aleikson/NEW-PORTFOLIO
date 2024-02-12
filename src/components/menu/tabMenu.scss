@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 :root {
   --bgColorMenu: #1d1d27;
   --duration: 0.7s;
@@ -13,7 +15,8 @@
   bottom: 0px;
   align-items: center;
   justify-content: center;
-  background-color: #070709;
+  border-radius: 50px;
+  background: $color-text-secondary;
   z-index: 9999;
 
   &__item {
@@ -31,9 +34,9 @@
     transition: transform var(--timeOut, var(--duration));
 
     svg {
-      color: white;
+      color: $color-bg-primary;
     }
-    
+
     &::before {
       content: "";
       z-index: -1;
@@ -57,9 +60,9 @@
         animation: strok 1.5s reverse;
       }
 
-      svg {
+      /* svg {
         color: #070709;
-      }
+      } */
     }
   }
 }
