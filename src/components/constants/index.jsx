@@ -7,9 +7,9 @@ import { FaWhatsapp, FaGithub } from 'react-icons/fa';
 import webIcon from '/web.png';
 import mobileIcon from '/mobile.png';
 import creatorIcon from '/creator.png';
-import project1Img from '/1.jpg';
-import project2Img from '/2.jpg';
-import project3Img from '/3.jpg';
+import project1Img from '/1.png';
+import project2Img from '/2.png';
+import project3Img from '/3.png';
 import perfilImg from '/perfil.jpg';
 
 export const navbar = [

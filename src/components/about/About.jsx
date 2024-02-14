@@ -81,7 +81,7 @@ const About = () => {
             Mais informações
           </motion.button>
         </div>
-      </motion.div>
+     
 
       <motion.div className='listContainer' variants={variants}>
         <div className='cardss'>
@@ -89,6 +89,8 @@ const About = () => {
             <ServiceCard key={service.title} {...service} />
           ))}
         </div>
+      </motion.div>
+
       </motion.div>
       {selectedService && (
         <div className='modal'>

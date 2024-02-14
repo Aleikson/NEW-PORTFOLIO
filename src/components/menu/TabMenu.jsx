@@ -4,17 +4,11 @@ import { navLinks } from '../constants';
 import { Link } from 'react-router-dom';
 
 const Menu = ({ isVisible }) => {
-  const [activeItem, setActiveItem] = useState(() => {
-    const savedItem = parseInt(localStorage.getItem('activeItem'));
-    return !isNaN(savedItem) && savedItem >= 0 && savedItem < navLinks.length
-      ? savedItem
-      : 0;
-  });
+  const [activeItem, setActiveItem] = useState(0); // Estado local para el elemento activo
   const menuBorderRef = useRef(null);
 
   const clickItem = (index) => {
     setActiveItem(index);
-    localStorage.setItem('activeItem', index);
   };
 
   const updateMenuBorderPosition = (index) => {
@@ -40,10 +34,11 @@ const Menu = ({ isVisible }) => {
             <MenuItem
               key={item.id}
               index={index}
+              title={item.title}
               link={item.link}
               icon={item.icon}
               active={activeItem === index}
-              onClick={clickItem}
+              onClick={clickItem} // Pasar la función clickItem como prop
             />
           ))}
         </menu>
@@ -52,14 +47,15 @@ const Menu = ({ isVisible }) => {
   );
 };
 
-const MenuItem = ({ index, link, icon, active, onClick }) => {
+const MenuItem = ({ title, link, icon, active, onClick, index }) => { // Se agrega index como prop
   return (
     <Link
       to={link}
       className={`menu__item ${active ? 'active' : ''}`}
-      onClick={() => onClick(index)}
+      onClick={() => onClick(index)} // Llamar a la función onClick pasando el índice
     >
       {icon}
+      <span>{title}</span>
     </Link>
   );
 };
