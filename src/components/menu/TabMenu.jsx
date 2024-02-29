@@ -10,22 +10,29 @@ const Menu = ({ isVisible }) => {
   const menuRef = useRef(null);
   const prevScrollY = useRef(0);
 
-  const clickItem = (index, event) => {
-    event.preventDefault();
+  const clickItem = (index) => {
     setActiveItem(index);
+    localStorage.setItem('activeItem', index);
   };
+
+  useEffect(() => {
+    const body = document.body;
+    if (navLinks[activeItem]) {
+      body.style.backgroundColor = navLinks[activeItem].color;
+    }
+  }, [activeItem]);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-  
+
     if (currentScrollY > prevScrollY.current) {
       setScrollDirection('down');
     } else if (currentScrollY < prevScrollY.current) {
       setScrollDirection('up');
     }
-  
+
     prevScrollY.current = currentScrollY;
-  };  
+  };
 
   useEffect(() => {
     if (isVisible) {
@@ -55,8 +62,7 @@ const Menu = ({ isVisible }) => {
         >
           {navLinks.map((item, index) => (
             <MenuItem
-              key={item.id}
-              index={index}
+              key={index}
               title={item.title}
               link={item.link}
               icon={item.icon}
@@ -70,12 +76,12 @@ const Menu = ({ isVisible }) => {
   );
 };
 
-const MenuItem = ({ title, link, icon, active, onClick, index }) => {
+const MenuItem = ({ index, title, link, icon, active, onClick }) => {
   return (
     <Link
       to={link}
       className={`menu__item ${active ? 'active' : ''}`}
-      onClick={(event) => onClick(index, event)}
+      onClick={() => onClick(index)}
     >
       {icon}
       <span>{title}</span>
