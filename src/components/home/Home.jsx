@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import './home.scss';
 import { motion } from 'framer-motion';
 
@@ -10,7 +11,7 @@ const textVariants = {
     x: 0,
     opacity: 1,
     transition: {
-      duration: 1,
+      duration: 2,
       staggerChildren: 0.1,
     },
   },
@@ -19,7 +20,13 @@ const sliderVariants = {
   initial: {
     x: 0,
   },
-  animate: {
+  MainAnimate: {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 50 },
+    transition: { delay: 1, duration: 1 },
+  },
+  secAnimate: {
     x: '-220%',
     transition: {
       repeat: Infinity,
@@ -30,6 +37,8 @@ const sliderVariants = {
 };
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <div className='hero'>
       <div className='wrapper'>
@@ -39,11 +48,9 @@ const Home = () => {
           initial='initial'
           animate='animate'
         >
-          <motion.h1 variants={textVariants}>ALEIKSON</motion.h1>
+          <motion.h1 variants={textVariants}>{t('home.title')}</motion.h1>
           <div className='subtitle'>
-            <motion.h2 variants={textVariants}>
-              Desenvolvedor <br></br> Front-End
-            </motion.h2>
+            <motion.h2 variants={textVariants}>{t('home.subtitle')}</motion.h2>
           </div>
         </motion.div>
       </div>
@@ -51,9 +58,9 @@ const Home = () => {
         className='slidingTextContainer'
         variants={sliderVariants}
         initial='initial'
-        animate='animate'
+        animate={['mainAnimation', 'secAnimate']}
       >
-        Developer & UI Designer
+        {t('home.aniText')} & UI Designer
       </motion.div>
     </div>
   );

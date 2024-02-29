@@ -1,0 +1,49 @@
+@import "../../app.scss";
+
+.containerSwitch {
+    position: fixed;
+    right: -150px;
+    top: 10%;
+    width: 120px;
+    height: 120px;
+    border: solid 1px #DDDDDD;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    background: #23252A;
+    z-index: 9999;
+
+    &.open {
+        transform: translateX(-10rem);
+    }
+}
+
+.open-settings-btn {
+    position: absolute;
+    top: 0;
+    right: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 40px;
+    border-radius: 30%;
+    z-index: 999;
+    background: #23252A;
+    color: #DDDDDD;
+    border: solid 1px #DDDDDD;
+    z-index: 9999;
+
+    &.open {
+        border-radius: 5px;
+    }
+
+    background: $color-bg-secondary;
+    color: $color-text-secondary;
+    border: solid $color-text-secondary;
+
+}

@@ -28,6 +28,10 @@ function Social() {
             whileHover={{ scale: 1.1 }}
             href='https://www.linkedin.com/in/aleikson-frontend/'
             className='btn-flip'
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ delay: 1, duration: 1 }}
           >
             <FaLinkedinIn />
           </motion.a>
@@ -35,6 +39,10 @@ function Social() {
             whileHover={{ scale: 1.1 }}
             href='https://github.com/Aleikson'
             className='btn-flip'
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ delay: 1.5, duration: 1 }}
           >
             <FiGithub />
           </motion.a>
@@ -42,14 +50,24 @@ function Social() {
             whileHover={{ scale: 1.1 }}
             href='https://web.whatsapp.com/'
             className='btn-flip'
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ delay: 2, duration: 1 }}
           >
             <FaWhatsapp />
           </motion.a>
         </div>
-        <div className='scroll-indicator'>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+          transition={{ delay: 1, duration: 1 }}
+          className='scroll-indicator'
+        >
           <span className='scroll-text'>{scrollText}</span>
           <div className='scroll-line'></div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

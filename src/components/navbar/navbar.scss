@@ -4,6 +4,14 @@
   height: 10vh;
   width: 100%;
 
+  &.navbar-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; // Certifique-se de que o navbar fixo esteja acima de outros elementos
+  }
+
   @include sm {
     display: none;
   }
@@ -108,7 +116,7 @@
       span {
         font-weight: bold;
         font-size: 35px;
-        color: #ffc93c;
+        color: $color-text-primary;
 
         @include sm {
           display: none;

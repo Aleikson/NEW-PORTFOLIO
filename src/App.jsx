@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './app.scss';
 import Home from './components/home/Home';
@@ -8,12 +9,31 @@ import Social from './components/social/Social';
 import Portfolio from './components/portfolio/Portfolio';
 import Cursor from './components/cursor/Cursor';
 import { Load } from './components/load/Load';
-import { useEffect, useState } from 'react';
-import { modalInfo } from './components/constants';
 import TabMenu from './components/menu/TabMenu';
+import { initReactI18next } from 'react-i18next';
+import i18n from 'i18next';
+import translationEN from './components/locales/en.json';
+import translationPT from './components/locales/pt.json';
+import Switches from './components/switch';
+
+i18n.use(initReactI18next).init({
+  resources: {
+    en: {
+      translation: translationEN,
+    },
+    pt: {
+      translation: translationPT,
+    },
+  },
+  lng: 'en',
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 const App = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [showIntroduction, setShowIntroduction] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,12 +49,10 @@ const App = () => {
     };
   }, []);
 
-  const [showIntroduction, setShowIntroduction] = useState(true);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntroduction(false);
-    }, 2000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -48,42 +66,52 @@ const App = () => {
       ) : (
         <>
           <Navbar />
+          <Switches />
           <Cursor />
           <Routes>
             <Route
               path='/'
               element={
-                <section>
-                  <Home />
-                </section>
+                <div className='sectionWrapper'>
+                  <section>
+                    <Home />
+                  </section>
+                </div>
               }
             />
             <Route
-              path='/about'
+              path='about'
               element={
-                <section
-                  style={{ height: windowWidth <= 768 ? 'auto' : '90vh' }}
-                >
-                  <About modalInfo={modalInfo} />
-                </section>
+                <div className='sectionWrapper'>
+                  <section
+                    className='aboutSection'
+                    style={{ height: windowWidth <= 768 ? 'auto' : '90vh' }}
+                  >
+                    <About />
+                  </section>
+                </div>
               }
             />
             <Route
-              path='/projects'
+              path='projects'
               element={
-                <section>
-                  <Portfolio />
-                </section>
+                <div className='sectionWrapper'>
+                  <section style={{ height: '100vh' }}>
+                    <Portfolio />
+                  </section>
+                </div>
               }
             />
             <Route
-              path='/contact'
+              path='contact'
               element={
-                <section
-                  style={{ height: windowWidth <= 768 ? 'auto' : '90vh' }}
-                >
-                  <Contact />
-                </section>
+                <div className='sectionWrapper'>
+                  <section
+                    style={{ height: windowWidth <= 768 ? 'auto' : '90vh' }}
+                  >
+                    <Contact />
+                  </section>
+                </div>
               }
             />
           </Routes>

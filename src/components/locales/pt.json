@@ -1,0 +1,83 @@
+{
+  "home": {
+    "title": "ALEIKSON",
+    "subtitle": "Desenvolvedor Front-End",
+    "aniText": "Desenvolvedor"
+  },
+  "navbar": {
+    "sobre": "Sobre",
+    "projetos": "Projetos",
+    "contatos": "Contatos"
+  },
+  "about": {
+    "introduction": "Introdução",
+    "overview": "Visão Geral",
+    "description": " Sou um desenvolvedor fronend experiente com habilidades em TypeScript e JavaScript, além de expertise em frameworks como React e Node.js. Sou um aprendiz rápido em criar soluções eficientes, escaláveis e amigáveis ao usuário, que resolvem problemas do mundo real.",
+    "moreInfo": "Mais informações",
+    "frontendDeveloper": "Desenvolvedor Frontend",
+    "aboutMe": "Sobre Mim",
+    "skills": "Habilidades de Progamação",
+    "resume": "Currículo"
+  },
+  "personal": {
+    "title": "Habilidades Pessoais",
+    "0": {
+      "title": "Comunicação Efetiva"
+    },
+    "1": {
+      "title": "Trabalho em Equipe"
+    },
+    "2": {
+      "title": "Resiliência"
+    }
+  },
+  "services": {
+    "Design": {
+      "title": "Design",
+      "description": "Priorizo criar estruturas de conteúdo simples, utilizando padrões de design limpos e interações planejadas."
+    },
+    "FrontEnd": {
+      "title": "FrontEnd",
+      "description": "Habilidade em desenvolver código do zero e transformar conceitos em realidade diretamente no navegador."
+    },
+    "BackEnd": {
+      "title": "BackEnd",
+      "description": "Estou me desenvolvendo na área do back-end, criando soluções para a parte \"back\" de sistemas web."
+    }
+  },
+  "projects": [
+    {
+      "title": "Hotel Bay",
+      "desc": "Hotel Bay é uma aplicação web desenvolvida utilizando as tecnologias React, Redux, Node.js, MongoDB e Firebase. O projeto tem como objetivo fornecer uma plataforma para reservas de acomodações, oferecendo funcionalidades para busca, visualização e reserva de diferentes opções de hospedagem em diversos destinos.",
+      "objective": "O principal objetivo do Hotel Bay é criar uma experiência de usuário intuitiva e eficiente para reserva de acomodações. Isso inclui a implementação de um front-end responsivo e interativo usando React e Redux para gerenciamento de estado, bem como um backend robusto construído em Node.js para fornecer uma API RESTful para comunicação com o cliente e integração com o banco de dados MongoDB para armazenamento de dados."
+    },
+    {
+      "title": "AJ Tutors",
+      "desc": "A Plataforma AJ Tutors para Bootcamp de Programação é um projeto concebido por dois alunos participantes do bootcamp. Reconhecendo as dificuldades enfrentadas por alguns colegas durante o curso, os idealizadores desenvolveram esta plataforma para simplificar e aprimorar o processo de aprendizado. A plataforma oferece uma variedade de recursos e ferramentas interativas para ajudar os alunos a absorverem conceitos complexos de programação de forma mais acessível e eficaz.",
+      "objective": "Nosso objetivo é oferecer uma plataforma intuitiva e útil que ajude os alunos a compreenderem melhor os conceitos de programação abordados no bootcamp. Queremos criar um ambiente de estudo colaborativo onde os alunos possam compartilhar conhecimentos, encontrar recursos de aprendizado relevantes e superar juntos os obstáculos encontrados ao longo do curso."
+    },
+    {
+      "title": "Land Scape Lens",
+      "desc": "Land Scape Lens é uma plataforma web projetada para profissionais de fotografia de paisagem compartilharem e explorarem suas experiências visuais. O projeto oferece uma experiência envolvente e interativa, fornecendo aos usuários a capacidade de compartilhar suas fotos de paisagens favoritas, explorar novos locais através de um mapa interativo e se conectar com outros entusiastas da fotografia.",
+      "objective": "O principal objetivo do Land Scape Lens é criar uma plataforma orientada pela comunidade para entusiastas da fotografia de paisagem compartilharem seu trabalho, descobrirem novos locais e se conectarem com pessoas de mentalidade semelhante."
+    }
+  ],
+  "portfolio": {
+    "readMore": "Ver mais",
+    "objective": "Objetivo"
+  },
+  "contact": {
+    "title": "CONTATOS",
+    "description": "Meu nome é Aleikson, sou um desenvolvedor Front-end e atuo como freelancer. Tenho uma paixão pela criação de experiências web envolventes e funcionais. Eu codifico e crio elementos da web para pessoas incríveis ao redor do mundo. Gosto de trabalhar com pessoas novas. Novas pessoas, novas experiências.",
+    "emailLabel": "E-mail",
+    "linkedinLabel": "LinkedIn",
+    "phoneLabel": "Telefone",
+    "name": "Nome",
+    "email": "E-mail",
+    "messagePlaceholder": "Mensagem",
+    "contactForm": "ENTRE EM CONTATO",
+    "send": "Enviar",
+    "error": "Ocorreu um erro. Por favor, tente novamente.",
+    "success": "Sua mensagem foi enviada com sucesso!"
+  }
+}

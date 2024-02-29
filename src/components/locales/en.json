@@ -1,0 +1,83 @@
+{
+  "home": {
+    "title": "ALEIKSON",
+    "subtitle": "Front-End Developer",
+    "aniText": "Developer"
+  },
+  "navbar": {
+    "sobre": "About",
+    "projetos": "Projects",
+    "contatos": "Contact"
+  },
+  "about": {
+    "introduction": "Introduction",
+    "overview": "Overview",
+    "description": "I am an experienced frontend developer with skills in TypeScript and JavaScript, along with expertise in frameworks like React and Node.js. I'm a quick learner in creating efficient, scalable, and user-friendly solutions that solve real-world problems.",
+    "moreInfo": "More Information",
+    "frontendDeveloper": "Frontend Developer",
+    "aboutMe": "About Me",
+    "skills": "Programming Skills",
+    "resume": "Resume"
+  },
+  "personal": {
+    "title": "Personal Skills",
+    "0": {
+      "title": "Effective Communication"
+    },
+    "1": {
+      "title": "Teamwork"
+    },
+    "2": {
+      "title": "Resilience"
+    }
+  },
+  "services": {
+    "Design": {
+      "title": "Design",
+      "description": "I prioritize creating simple content structures, using clean design patterns and planned interactions."
+    },
+    "FrontEnd": {
+      "title": "FrontEnd",
+      "description": "Ability to develop code from scratch and turn concepts into reality directly in the browser."
+    },
+    "BackEnd": {
+      "title": "BackEnd",
+      "description": "I am developing myself in the backend area, creating solutions for the \"back\" part of web systems."
+    }
+  },
+  "projects": [
+    {
+      "title": "Hotel Bay",
+      "desc": "Hotel Bay is a web application developed using React, Redux, Node.js, MongoDB, and Firebase technologies. The project aims to provide a platform for accommodation bookings, offering functionalities for searching, viewing, and booking different lodging options in various destinations.",
+      "objective": "The main objective of Hotel Bay is to create an intuitive and efficient user experience for accommodation booking. This includes implementing a responsive and interactive front-end using React and Redux for state management, as well as a robust backend built on Node.js to provide a RESTful API for client communication and integration with the MongoDB database for data storage."
+    },
+    {
+      "title": "AJ Tutors",
+      "desc": "The AJ Tutors Platform for Programming Bootcamp is a project conceived by two students participating in the bootcamp. Recognizing the difficulties faced by some classmates during the course, the creators developed this platform to simplify and enhance the learning process. The platform offers a variety of resources and interactive tools to help students absorb complex programming concepts in a more accessible and effective way.",
+      "objective": "Our goal is to provide an intuitive and useful platform that helps students better understand the programming concepts covered in the bootcamp. We aim to create a collaborative learning environment where students can share knowledge, find relevant learning resources, and overcome obstacles together throughout the course."
+    },
+    {
+      "title": "Land Scape Lens",
+      "desc": "Land Scape Lens is a web platform designed for landscape photography professionals to share and explore their visual experiences. The project offers an engaging and interactive experience, providing users with the ability to share their favorite landscape photos, explore new locations through an interactive map, and connect with other photography enthusiasts.",
+      "objective": "The main objective of Land Scape Lens is to create a community-driven platform for landscape photography enthusiasts to share their work, discover new locations, and connect with like-minded individuals."
+    }
+  ],
+  "portfolio": {
+    "readMore": "Read More",
+    "objective": "Objective"
+  },
+  "contact": {
+    "title": "CONTACTS",
+    "description": "My name is Aleikson, I'm a Front-end developer and work as a freelancer. I have a passion for creating engaging and functional web experiences. I code and create web elements for amazing people around the world. I enjoy working with new people. New people, new experiences.",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn",
+    "phoneLabel": "Phone",
+    "name": "Name",
+    "email": "Email",
+    "messagePlaceholder": "Message",
+    "contactForm": "GET IN TOUCH",
+    "send": "Send",
+    "error": "An error occurred. Please try again.",
+    "success": "Your message has been sent successfully!"
+  }
+}

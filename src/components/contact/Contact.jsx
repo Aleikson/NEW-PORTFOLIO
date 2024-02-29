@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react';
 import './contact.scss';
 import { motion, useInView } from 'framer-motion';
-import emailjs from '@emailjs/browser';
-
+import { useTranslation } from 'react-i18next';
 const variants = {
   initial: {
     x: -500,
@@ -23,29 +22,31 @@ const variants = {
 const Contact = () => {
   const ref = useRef();
   const formRef = useRef();
-  const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
-
+  const { t } = useTranslation();
   const isInView = useInView(ref, { margin: '-100px' });
 
-  const sendEmail = (e) => {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        'service_94y20xo',
-        'template_v10u2oh',
-        formRef.current,
-        'pX_2hasGmGcuvjXIW'
-      )
-      .then(
-        (result) => {
-          setSuccess(true);
+    try {
+      const response = await fetch('https://formspree.io/f/xaygljqo', {
+        method: 'POST',
+        body: new FormData(e.target),
+        headers: {
+          Accept: 'application/json',
         },
-        (error) => {
-          setError(true);
-        }
-      );
+      });
+
+      if (response.ok) {
+        setShowSuccessMessage(true);
+      } else {
+        console.error('Error submitting the form:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error submitting the form:', error);
+    }
   };
 
   return (
@@ -57,28 +58,22 @@ const Contact = () => {
       animate={'animate'}
     >
       <motion.div className='textContainer' variants={variants}>
-        <motion.h1 variants={variants}>CONTATOS</motion.h1>
-        <p>
-          Meu nome é Aleikson, sou um desenvolvedor Front-end e atuo como
-          freelancer. Tenho uma paixão pela criação de experiências web
-          envolventes e funcionais. Eu codifico e crio elementos da web para
-          pessoas incríveis ao redor do mundo. Gosto de trabalhar com pessoas
-          novas. Novas pessoas, novas experiências.
-        </p>
+        <motion.h1 variants={variants}>{t('contact.title')}</motion.h1>
+        <p>{t('contact.description')}</p>
         <motion.div className='item' variants={variants}>
-          <h2>E-mail</h2>
+          <h2>{t('contact.emailLabel')}</h2>
           <a href='mailto:aleiksonsilva@hotmail.com'>
             aleiksonsilva@hotmail.com
           </a>
         </motion.div>
         <motion.div className='item' variants={variants}>
-          <h2>LinkedIn</h2>
+          <h2>{t('contact.linkedinLabel')}</h2>
           <a href='https://www.linkedin.com/in/aleikson/'>
             linkedin.com/aleikson
           </a>
         </motion.div>
         <motion.div className='item' variants={variants}>
-          <h2>Telefone</h2>
+          <h2>{t('contact.phoneLabel')}</h2>
           <a href='tel:+5599984557469'>+55 99 98455-7469</a>
         </motion.div>
       </motion.div>
@@ -115,25 +110,36 @@ const Contact = () => {
         </motion.div>
         <motion.form
           ref={formRef}
-          onSubmit={sendEmail}
+          action='https://formspree.io/f/xaygljqo'
+          method='POST'
+          onSubmit={handleSubmit}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 4, duration: 1 }}
         >
-          <h2>ENTRE EM CONTATO</h2>
-          <input type='text' required placeholder='Nome' name='name' />
-          <input type='email' required placeholder='E-mail' name='email' />
-          <textarea rows={8} placeholder='Mensagem' name='message' />
-          <motion.button whileHover={{ scale: 1.1 }}>Enviar</motion.button>
-          {error && (
-            <p className='errorMessage'>
-              Ocorreu um erro. Por favor, tente novamente.
-            </p>
-          )}
-          {success && (
-            <p className='successMessage'>
-              Sua mensagem foi enviada com sucesso!
-            </p>
+          <h2>{t('contact.contactForm')}</h2>
+          <input
+            type='text'
+            required
+            placeholder={t('contact.name')}
+            name='name'
+          />
+          <input
+            type='email'
+            required
+            placeholder={t('contact.email')}
+            name='email'
+          />
+          <textarea
+            rows={8}
+            placeholder={t('contact.messagePlaceholder')}
+            name='message'
+          />
+          <motion.button whileHover={{ scale: 1.1 }}>
+            {t('contact.send')}
+          </motion.button>
+          {showSuccessMessage && (
+            <p className='successMessage'>{t('contact.success')}</p>
           )}
         </motion.form>
       </div>

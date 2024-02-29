@@ -55,7 +55,6 @@ $color-text-secondary: #DDDDDD;
 $text-large: 40px;
 $text-small: 16px;
 
-
 * {
   padding: 0;
   margin: 0;
@@ -67,13 +66,62 @@ body {
   background: radial-gradient(circle farthest-corner at center center, #23252A 60%, #070709 100%);
 }
 
+.sectionWrapper {
+  max-width: 1300px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+
 section {
   height: 90vh;
-  scroll-snap-align: center;
   padding: 30px;
 
-  @include sm {
-    padding: 100px 30px;
+  @include mobile {
+    padding: 50px 15px 50px 15px;
   }
+}
 
+.aboutSection {
+  width: 100%;
+}
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  @include sm {
+    scroll-snap-type: none;
+  }
+}
+
+.secProject {
+  scroll-snap-align: end;
+  padding: 0;
+}
+
+/* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+/** {
+  scrollbar-width: thin;
+  scrollbar-color: #070709 #DDDDDD;
+}*/
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #23252A;
+  border: 4px solid #23252A;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #070709;
+  border: 4px solid #070709;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #070709;
 }
