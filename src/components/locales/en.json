@@ -9,6 +9,18 @@
     "projetos": "Projects",
     "contatos": "Contact"
   },
+  "routes": {
+    "WELCOME": "WELCOME",
+    "ABOUT": "ABOUT",
+    "PROJECTS": "PROJECTS",
+    "CONTACT": "CONTACTS"
+  },
+  "navlinks": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
   "about": {
     "introduction": "Introduction",
     "overview": "Overview",

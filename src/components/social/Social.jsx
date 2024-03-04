@@ -5,20 +5,22 @@ import { motion } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { FiGithub } from 'react-icons/fi';
+import { useTranslation } from 'react-i18next';
 
 function Social() {
   const location = useLocation();
   const [scrollText, setScrollText] = useState('WELCOME');
+  const { t } = useTranslation();
 
   useEffect(() => {
     const routeToScrollText = {
-      '/about': 'SOBRE',
-      '/projects': 'PROJETOS',
-      '/contact': 'CONTATOS',
+      '/about': t('routes.ABOUT'),
+      '/projects': t('routes.PROJECTS'),
+      '/contact': t('routes.CONTACT'),
     };
 
-    setScrollText(routeToScrollText[location.pathname] || 'WELCOME');
-  }, [location.pathname]);
+    setScrollText(routeToScrollText[location.pathname] || t('routes.WELCOME'));
+  }, [location.pathname, t]);
 
   return (
     <div className='socialMediaContainer'>
@@ -48,7 +50,7 @@ function Social() {
           </motion.a>
           <motion.a
             whileHover={{ scale: 1.1 }}
-            href='https://web.whatsapp.com/'
+            href='https://wa.me/+559984557469'
             className='btn-flip'
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
