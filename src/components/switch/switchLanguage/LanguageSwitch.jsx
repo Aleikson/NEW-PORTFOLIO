@@ -1,6 +1,6 @@
 import './languageSwitch.scss'; // Importando os estilos SCSS
-import Us from '/us.svg';
-import Br from '/br.svg';
+import Us from '../../../assets//us.svg';
+import Br from '../../../assets/br.svg';
 import { useTranslation } from 'react-i18next';
 
 const languageOptions = [

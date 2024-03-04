@@ -4,9 +4,9 @@ import { motion, useScroll } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
 import { CiGlobe } from 'react-icons/ci';
 import { useTranslation } from 'react-i18next';
-import project1Img from '/1.png';
-import project2Img from '/2.png';
-import project3Img from '/2.png';
+import project1Img from '../../assets/1.png';
+import project2Img from '../../assets/buildingProject.png';
+import project3Img from '../../assets/buildingProject.png';
 
 const variants = {
   initial: {

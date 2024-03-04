@@ -8,7 +8,6 @@ $speed: 0.5s;
   top: 80%;
   display: flex;
   justify-content: center;
-  z-index: 1;
 
   @include mobile {
     display: none;
@@ -18,6 +17,8 @@ $speed: 0.5s;
     display: flex;
     justify-content: space-between;
     width: 90%;
+    position: relative;
+    z-index: -1;
   }
 }
 
@@ -30,7 +31,7 @@ $speed: 0.5s;
 
   @include fix{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: flex-end;
   }
 

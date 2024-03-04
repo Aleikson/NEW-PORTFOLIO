@@ -1,10 +1,43 @@
 import { useState, useEffect, useRef } from 'react';
 import './tabMenu.scss';
-import { navLinks } from '../constants';
 import { Link } from 'react-router-dom';
+import { FaHome, FaInfo, FaCode } from 'react-icons/fa';
+import { GrContact } from 'react-icons/gr';
+import { useTranslation } from 'react-i18next';
 
 const Menu = ({ isVisible }) => {
-  const [activeItem, setActiveItem] = useState(0);
+  const { t } = useTranslation();
+
+  const navLinks = [
+    {
+      id: '1',
+      title: t('navlinks.home'),
+      link: '/',
+      icon: <FaHome />,
+    },
+    {
+      id: '2',
+      title: t('navlinks.about'),
+      link: '/about',
+      icon: <FaInfo />,
+    },
+    {
+      id: '3',
+      title: t('navlinks.projects'),
+      link: '/projects',
+      icon: <FaCode />,
+    },
+    {
+      id: '4',
+      title: t('navlinks.contact'),
+      link: '/contact',
+      icon: <GrContact />,
+    },
+  ];
+
+  const [activeItem, setActiveItem] = useState(
+    parseInt(localStorage.getItem('activeItem')) || 0
+  );
   const [scrollDirection, setScrollDirection] = useState('none');
   const [menuPosition, setMenuPosition] = useState(0);
   const menuRef = useRef(null);
@@ -67,7 +100,7 @@ const Menu = ({ isVisible }) => {
               link={item.link}
               icon={item.icon}
               active={activeItem === index}
-              onClick={clickItem}
+              onClick={() => clickItem(index)}
             />
           ))}
         </div>
@@ -76,12 +109,13 @@ const Menu = ({ isVisible }) => {
   );
 };
 
-const MenuItem = ({ index, title, link, icon, active, onClick }) => {
+const MenuItem = ({ title, link, icon, active, onClick }) => {
+
   return (
     <Link
       to={link}
       className={`menu__item ${active ? 'active' : ''}`}
-      onClick={() => onClick(index)}
+      onClick={onClick}
     >
       {icon}
       <span>{title}</span>

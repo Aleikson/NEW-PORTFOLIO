@@ -2,11 +2,11 @@ import { useRef, useState, useEffect } from 'react';
 import './about.scss';
 import { motion } from 'framer-motion';
 import { Tilt } from 'react-tilt';
-import webIcon from '/web.png';
-import mobileIcon from '/mobile.png';
+import webIcon from '../../assets/web.png';
+import mobileIcon from '../../assets/mobile.png';
+import creatorIcon from '../../assets/creator.png';
+import perfilImg from '../../assets/perfil.jpg';
 import { IoMdArrowDropright } from 'react-icons/io';
-import creatorIcon from '/creator.png';
-import perfilImg from '/perfil.jpg';
 import { CiLinkedin } from 'react-icons/ci';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FaGithub, FaWhatsapp } from 'react-icons/fa';
@@ -220,9 +220,15 @@ const About = () => {
                       </li>
                     ))}
                 </ul>
-                <motion.button whileHover={{ scale: 1.1 }} className='btnCv'>
-                  {t('about.resume')}
-                </motion.button>
+                <a
+                  href='/Aleikson.pdf'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <motion.button className='btnCv' whileHover={{ scale: 1.1 }}>
+                    {t('about.resume')}
+                  </motion.button>
+                </a>
               </div>
             </div>
             <div className='rightSide'>
