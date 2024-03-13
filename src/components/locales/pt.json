@@ -59,13 +59,13 @@
   },
   "projects": [
     {
-      "title": "Hotel Bay",
-      "desc": "Hotel Bay é uma aplicação web desenvolvida utilizando as tecnologias React, Redux, Node.js, MongoDB e Firebase. O projeto tem como objetivo fornecer uma plataforma para reservas de acomodações, oferecendo funcionalidades para busca, visualização e reserva de diferentes opções de hospedagem em diversos destinos.",
-      "objective": "O principal objetivo do Hotel Bay é criar uma experiência de usuário intuitiva e eficiente para reserva de acomodações. Isso inclui a implementação de um front-end responsivo e interativo usando React e Redux para gerenciamento de estado, bem como um backend robusto construído em Node.js para fornecer uma API RESTful para comunicação com o cliente e integração com o banco de dados MongoDB para armazenamento de dados."
+      "title": "House Bay",
+      "desc": "House Bay é uma aplicação web desenvolvida utilizando as tecnologias React, Redux, Node.js, MongoDB e Firebase. O projeto tem como objetivo fornecer uma plataforma para reservas de acomodações, oferecendo funcionalidades para busca, visualização e reserva de diferentes opções de hospedagem em diversos destinos.",
+      "objective": "O principal objetivo do House Bay é criar uma experiência de usuário intuitiva e eficiente para reserva de acomodações. Isso inclui a implementação de um front-end responsivo e interativo usando React e Redux para gerenciamento de estado, bem como um backend robusto construído em Node.js para fornecer uma API RESTful para comunicação com o cliente e integração com o banco de dados MongoDB para armazenamento de dados."
     },
     {
-      "title": "AJ Tutors",
-      "desc": "A Plataforma AJ Tutors para Bootcamp de Programação é um projeto concebido por dois alunos participantes do bootcamp. Reconhecendo as dificuldades enfrentadas por alguns colegas durante o curso, os idealizadores desenvolveram esta plataforma para simplificar e aprimorar o processo de aprendizado. A plataforma oferece uma variedade de recursos e ferramentas interativas para ajudar os alunos a absorverem conceitos complexos de programação de forma mais acessível e eficaz.",
+      "title": "Tech Tutors",
+      "desc": "A Plataforma Tech Tutors para Bootcamp de Programação é um projeto concebido por dois alunos participantes do bootcamp. Reconhecendo as dificuldades enfrentadas por alguns colegas durante o curso, os idealizadores desenvolveram esta plataforma para simplificar e aprimorar o processo de aprendizado. A plataforma oferece uma variedade de recursos e ferramentas interativas para ajudar os alunos a absorverem conceitos complexos de programação de forma mais acessível e eficaz.",
       "objective": "Nosso objetivo é oferecer uma plataforma intuitiva e útil que ajude os alunos a compreenderem melhor os conceitos de programação abordados no bootcamp. Queremos criar um ambiente de estudo colaborativo onde os alunos possam compartilhar conhecimentos, encontrar recursos de aprendizado relevantes e superar juntos os obstáculos encontrados ao longo do curso."
     },
     {

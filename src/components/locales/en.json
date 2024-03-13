@@ -59,13 +59,13 @@
   },
   "projects": [
     {
-      "title": "Hotel Bay",
-      "desc": "Hotel Bay is a web application developed using React, Redux, Node.js, MongoDB, and Firebase technologies. The project aims to provide a platform for accommodation bookings, offering functionalities for searching, viewing, and booking different lodging options in various destinations.",
-      "objective": "The main objective of Hotel Bay is to create an intuitive and efficient user experience for accommodation booking. This includes implementing a responsive and interactive front-end using React and Redux for state management, as well as a robust backend built on Node.js to provide a RESTful API for client communication and integration with the MongoDB database for data storage."
+      "title": "House Bay",
+      "desc": "House Bay is a web application developed using React, Redux, Node.js, MongoDB, and Firebase technologies. The project aims to provide a platform for accommodation bookings, offering functionalities for searching, viewing, and booking different lodging options in various destinations.",
+      "objective": "The main objective of House Bay is to create an intuitive and efficient user experience for accommodation booking. This includes implementing a responsive and interactive front-end using React and Redux for state management, as well as a robust backend built on Node.js to provide a RESTful API for client communication and integration with the MongoDB database for data storage."
     },
     {
-      "title": "AJ Tutors",
-      "desc": "The AJ Tutors Platform for Programming Bootcamp is a project conceived by two students participating in the bootcamp. Recognizing the difficulties faced by some classmates during the course, the creators developed this platform to simplify and enhance the learning process. The platform offers a variety of resources and interactive tools to help students absorb complex programming concepts in a more accessible and effective way.",
+      "title": "Tech Tutors",
+      "desc": "The Tech Tutors Platform for Programming Bootcamp is a project conceived by two students participating in the bootcamp. Recognizing the difficulties faced by some classmates during the course, the creators developed this platform to simplify and enhance the learning process. The platform offers a variety of resources and interactive tools to help students absorb complex programming concepts in a more accessible and effective way.",
       "objective": "Our goal is to provide an intuitive and useful platform that helps students better understand the programming concepts covered in the bootcamp. We aim to create a collaborative learning environment where students can share knowledge, find relevant learning resources, and overcome obstacles together throughout the course."
     },
     {
