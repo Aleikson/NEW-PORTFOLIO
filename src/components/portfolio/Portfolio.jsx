@@ -59,23 +59,23 @@ const Portfolio = () => {
       description: t('projects.0.desc'),
       objective: t('projects.0.objective'),
       linkGit: 'https://github.com/Aleikson/HOTEL-FRONT',
-      link: 'https://github.com/Aleikson/HOTEL-FRONT',
+      link: 'https://house-bay.onrender.com/',
     },
     {
       imgSrc: project2Img,
       title: t('projects.1.title'),
       description: t('projects.1.desc'),
       objective: t('projects.1.objective'),
-      linkGit: 'https://github.com/Aleikson/HOTEL-FRONT',
-      link: 'https://github.com/Aleikson/HOTEL-FRONT',
+      linkGit: '',
+      link: '',
     },
     {
       imgSrc: project3Img,
       title: t('projects.2.title'),
       description: t('projects.2.desc'),
       objective: t('projects.2.objective'),
-      linkGit: 'https://github.com/Aleikson/HOTEL-FRONT',
-      link: 'https://github.com/Aleikson/HOTEL-FRONT',
+      linkGit: '',
+      link: '',
     },
   ];
 
