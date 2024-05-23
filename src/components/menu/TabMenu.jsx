@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import './tabMenu.scss';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaHome, FaInfo, FaCode } from 'react-icons/fa';
 import { GrContact } from 'react-icons/gr';
 import { useTranslation } from 'react-i18next';
 
 const Menu = ({ isVisible }) => {
   const { t } = useTranslation();
+  const location = useLocation();
 
   const navLinks = [
     {
@@ -35,9 +36,7 @@ const Menu = ({ isVisible }) => {
     },
   ];
 
-  const [activeItem, setActiveItem] = useState(
-    parseInt(localStorage.getItem('activeItem')) || 0
-  );
+  const [activeItem, setActiveItem] = useState(0);
   const [scrollDirection, setScrollDirection] = useState('none');
   const [menuPosition, setMenuPosition] = useState(0);
   const menuRef = useRef(null);
@@ -45,7 +44,6 @@ const Menu = ({ isVisible }) => {
 
   const clickItem = (index) => {
     setActiveItem(index);
-    localStorage.setItem('activeItem', index);
   };
 
   useEffect(() => {
@@ -54,6 +52,14 @@ const Menu = ({ isVisible }) => {
       body.style.backgroundColor = navLinks[activeItem].color;
     }
   }, [activeItem]);
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const activeIndex = navLinks.findIndex((navLink) => navLink.link === currentPath);
+    if (activeIndex !== -1) {
+      setActiveItem(activeIndex);
+    }
+  }, [location.pathname, navLinks]);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
