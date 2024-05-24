@@ -228,23 +228,29 @@
 
     .infoProject {
       .btnLinks {
-        a{
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+
+        a {
           display: inline-flex;
-          align-items: center; 
-          padding: 5px 10px; 
+          align-items: center;
+          padding: 5px 10px;
           border: 1px solid $color-text-secondary;
-          border-radius: 5px; 
+          border-radius: 5px;
           margin-left: 15px;
           text-decoration: none;
           color: $color-text-secondary;
           cursor: pointer;
           transition: background-color 0.3s ease;
 
-          &:hover{
+          &:hover {
             background: $color-bg-primary;
           }
 
-          svg{
+          svg {
             margin-right: 10px;
           }
 

@@ -52,7 +52,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntroduction(false);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
